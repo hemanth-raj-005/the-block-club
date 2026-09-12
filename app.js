@@ -11,6 +11,9 @@ document.addEventListener('DOMContentLoaded', () => {
   initPassStudio();
   initLiveClock();
   initMobileNav();
+  initHeroReflectiveToggle();
+  initTableMenuModal();
+  initGlobalNavigationButtons();
 });
 
 /* ==========================================================================
@@ -58,7 +61,7 @@ function initAudioEngine() {
       const textSpan = toggleBtn.querySelector('.audio-text');
       if (textSpan) textSpan.textContent = 'CADENCE: 168 BPM';
       startCadencePulse();
-      showToast('♫ Cadence Audio Online (168 BPM Pulse)');
+      showToast('♫ Cadence Audio Online (168 BPM Runner Metronome)');
     } else {
       toggleBtn.classList.remove('playing');
       const textSpan = toggleBtn.querySelector('.audio-text');
@@ -69,7 +72,7 @@ function initAudioEngine() {
   });
 
   // Sound effects on interactive buttons
-  document.querySelectorAll('.btn, .route-tab-btn, .filter-btn, .product-card').forEach(el => {
+  document.querySelectorAll('.btn, .route-tab-btn, .filter-btn, .product-card, .btn-reflective-toggle, .pace-preset-btn').forEach(el => {
     el.addEventListener('mouseenter', () => playTickSound(800, 0.02, 0.03));
     el.addEventListener('click', () => playTickSound(1200, 0.05, 0.06));
   });
@@ -138,7 +141,34 @@ function stopCadencePulse() {
 }
 
 /* ==========================================================================
-   3. RUN DIVISION: CANVAS ROUTE VISUALIZER & PACE ENGINE
+   3. HERO 3M REFLECTIVE ILLUMINATION TOGGLE
+   ========================================================================== */
+function initHeroReflectiveToggle() {
+  const card = document.getElementById('heroVisualCard');
+  const btn = document.getElementById('toggleReflectiveBtn');
+  const label = document.getElementById('hudReflectiveLabel');
+  const btnText = document.getElementById('reflectiveBtnText');
+
+  if (btn && card) {
+    btn.addEventListener('click', () => {
+      const isReflective = card.classList.toggle('reflective-mode');
+      btn.classList.toggle('active', isReflective);
+
+      if (isReflective) {
+        if (btnText) btnText.textContent = '3M NIGHT GLOW: ON';
+        if (label) label.textContent = 'LOOK 04: HIGH-VIS 3M SCOTCHLITE ACTIVATED (300 LM)';
+        showToast('⚡ 3M™ Scotchlite High-Vis Reflective Filter Activated');
+      } else {
+        if (btnText) btnText.textContent = '3M NIGHT GLOW: OFF';
+        if (label) label.textContent = 'LOOK 04: HYBRID SHELL + 3M REFLECTIVE GRID';
+        showToast('3M Night Glow Deactivated');
+      }
+    });
+  }
+}
+
+/* ==========================================================================
+   4. RUN DIVISION: CANVAS ROUTE VISUALIZER & PACE ENGINE
    ========================================================================== */
 const ROUTE_DATA = {
   riverside: {
@@ -185,6 +215,7 @@ const ROUTE_DATA = {
 
 let currentRouteKey = 'riverside';
 let runnerProgress = 0;
+let isRunnerPlaying = true;
 let animationFrameId = null;
 
 function initRouteCanvas() {
@@ -201,13 +232,14 @@ function initRouteCanvas() {
 
   // Tab switcher
   document.querySelectorAll('.route-tab-btn').forEach(btn => {
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
       document.querySelectorAll('.route-tab-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
       currentRouteKey = btn.dataset.route;
       runnerProgress = 0;
       updateRouteInfo();
       calculatePace();
+      showToast(`Loaded Circuit: ${ROUTE_DATA[currentRouteKey].name}`);
     });
   });
 
@@ -215,6 +247,38 @@ function initRouteCanvas() {
   const paceSlider = document.getElementById('paceSlider');
   if (paceSlider) {
     paceSlider.addEventListener('input', calculatePace);
+  }
+
+  // Quick Preset Buttons
+  document.querySelectorAll('.pace-preset-btn').forEach(presetBtn => {
+    presetBtn.addEventListener('click', () => {
+      const paceVal = parseInt(presetBtn.dataset.pace, 10);
+      if (paceSlider) {
+        paceSlider.value = paceVal;
+        calculatePace();
+        showToast(`Pace locked: ${presetBtn.textContent}`);
+      }
+    });
+  });
+
+  // Play / Pause Runner Simulation
+  const playbackBtn = document.getElementById('toggleRunnerPlaybackBtn');
+  const playbackText = document.getElementById('playbackText');
+  const playbackIcon = document.getElementById('playbackIcon');
+
+  if (playbackBtn) {
+    playbackBtn.addEventListener('click', () => {
+      isRunnerPlaying = !isRunnerPlaying;
+      if (isRunnerPlaying) {
+        playbackText.textContent = 'RUNNER: ACTIVE';
+        playbackIcon.innerHTML = '<path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>';
+        showToast('Runner Animation Resumed');
+      } else {
+        playbackText.textContent = 'RUNNER: PAUSED';
+        playbackIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+        showToast('Runner Animation Paused');
+      }
+    });
   }
 
   // Animation render loop
@@ -292,8 +356,10 @@ function drawCanvasRoute(ctx, canvas) {
   });
 
   // Animated Runner Marker
-  runnerProgress += 0.003;
-  if (runnerProgress > 1) runnerProgress = 0;
+  if (isRunnerPlaying) {
+    runnerProgress += 0.003;
+    if (runnerProgress > 1) runnerProgress = 0;
+  }
 
   const currentPos = getPointOnPath(pts, runnerProgress);
   if (currentPos) {
@@ -311,7 +377,7 @@ function drawCanvasRoute(ctx, canvas) {
     ctx.beginPath();
     ctx.arc(currentPos.x, currentPos.y, 5 * window.devicePixelRatio, 0, Math.PI * 2);
     ctx.fill();
-    ctx.shadowBlur = 0; // reset
+    ctx.shadowBlur = 0;
   }
 }
 
@@ -337,13 +403,12 @@ function updateRouteInfo() {
   document.getElementById('routeDisplayDesc').textContent = route.description;
   document.getElementById('routeDisplayDist').textContent = `${route.distance} MI`;
   document.getElementById('routeDisplayElev').textContent = route.elevation;
-  document.getElementById('routeDisplayTerrain').textContent = route.terrain;
 }
 
 function calculatePace() {
   const slider = document.getElementById('paceSlider');
   if (!slider) return;
-  const paceSecondsPerMile = parseInt(slider.value, 10); // e.g. 420 = 7:00/mi
+  const paceSecondsPerMile = parseInt(slider.value, 10);
 
   const mins = Math.floor(paceSecondsPerMile / 60);
   const secs = String(paceSecondsPerMile % 60).padStart(2, '0');
@@ -361,11 +426,9 @@ function calculatePace() {
 
   document.getElementById('estTimeDisplay').textContent = timeString;
 
-  // Approximate calories (dist * 105 avg)
   const calories = Math.round(route.distance * 108);
   document.getElementById('estCalDisplay').textContent = `${calories} kcal`;
 
-  // Heat assignment
   const heatBadge = document.getElementById('heatBadgeDisplay');
   const heatName = document.getElementById('heatNameDisplay');
   if (paceSecondsPerMile <= 400) {
@@ -384,7 +447,7 @@ function calculatePace() {
 }
 
 /* ==========================================================================
-   4. CAPSULE STREETWEAR & LOOKBOOK MODAL
+   5. CAPSULE STREETWEAR & LOOKBOOK MODAL
    ========================================================================== */
 const CAPSULE_PRODUCTS = {
   p1: {
@@ -417,6 +480,9 @@ const CAPSULE_PRODUCTS = {
   }
 };
 
+let currentModalProductKey = 'p1';
+let currentProductQuantity = 1;
+
 function initCapsuleSection() {
   // Live countdown timer to drop
   const dropDate = new Date();
@@ -448,28 +514,39 @@ function initCapsuleSection() {
   const modal = document.getElementById('productModal');
   const closeBtn = document.getElementById('closeProductModal');
 
+  function openProductModal(pid) {
+    currentModalProductKey = pid;
+    const data = CAPSULE_PRODUCTS[pid];
+    if (!data) return;
+
+    document.getElementById('modalProductTitle').textContent = data.title;
+    document.getElementById('modalProductPrice').textContent = data.price;
+    document.getElementById('modalProductDesc').textContent = data.desc;
+    document.getElementById('modalProductColor').textContent = `Colorway: ${data.color}`;
+
+    const specsList = document.getElementById('modalProductSpecs');
+    specsList.innerHTML = '';
+    data.specs.forEach(spec => {
+      const li = document.createElement('li');
+      li.textContent = spec;
+      specsList.appendChild(li);
+    });
+
+    currentProductQuantity = 1;
+    document.getElementById('qtyDisplay').textContent = currentProductQuantity;
+    modal.classList.add('open');
+  }
+
   document.querySelectorAll('.product-card').forEach(card => {
     card.addEventListener('click', () => {
-      const pid = card.dataset.product;
-      const data = CAPSULE_PRODUCTS[pid];
-      if (!data) return;
-
-      document.getElementById('modalProductTitle').textContent = data.title;
-      document.getElementById('modalProductPrice').textContent = data.price;
-      document.getElementById('modalProductDesc').textContent = data.desc;
-      document.getElementById('modalProductColor').textContent = `Colorway: ${data.color}`;
-
-      const specsList = document.getElementById('modalProductSpecs');
-      specsList.innerHTML = '';
-      data.specs.forEach(spec => {
-        const li = document.createElement('li');
-        li.textContent = spec;
-        specsList.appendChild(li);
-      });
-
-      modal.classList.add('open');
+      openProductModal(card.dataset.product);
     });
   });
+
+  const heroInspectBtn = document.getElementById('reserveCapsuleHeroBtn');
+  if (heroInspectBtn) {
+    heroInspectBtn.addEventListener('click', () => openProductModal('p1'));
+  }
 
   if (closeBtn) {
     closeBtn.addEventListener('click', () => modal.classList.remove('open'));
@@ -480,13 +557,47 @@ function initCapsuleSection() {
     });
   }
 
+  // Color Swatches inside modal
+  document.querySelectorAll('.color-swatch-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.color-swatch-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const colorLabel = document.getElementById('modalProductColor');
+      if (colorLabel) colorLabel.textContent = `Colorway: ${btn.dataset.color}`;
+      showToast(`Selected Colorway: ${btn.dataset.color}`);
+    });
+  });
+
+  // Quantity controls
+  const qtyMinus = document.getElementById('qtyMinusBtn');
+  const qtyPlus = document.getElementById('qtyPlusBtn');
+  const qtyDisplay = document.getElementById('qtyDisplay');
+
+  if (qtyMinus && qtyPlus && qtyDisplay) {
+    qtyMinus.addEventListener('click', () => {
+      if (currentProductQuantity > 1) {
+        currentProductQuantity--;
+        qtyDisplay.textContent = currentProductQuantity;
+      }
+    });
+    qtyPlus.addEventListener('click', () => {
+      if (currentProductQuantity < 2) {
+        currentProductQuantity++;
+        qtyDisplay.textContent = currentProductQuantity;
+      } else {
+        showToast('Maximum 2 units allowed per cohort member');
+      }
+    });
+  }
+
   // Reserve button inside modal
   const reserveBtn = document.getElementById('reserveProductBtn');
   if (reserveBtn) {
     reserveBtn.addEventListener('click', () => {
       const activeSize = document.querySelector('.size-btn.active')?.textContent || 'M';
       modal.classList.remove('open');
-      showToast(`✓ Reserved in size ${activeSize} — Allocation locked for Drop 02!`);
+      const prodName = CAPSULE_PRODUCTS[currentModalProductKey]?.title || 'Piece';
+      showToast(`✓ Reserved ${currentProductQuantity}x ${prodName} (Size ${activeSize})!`);
     });
   }
 
@@ -500,7 +611,7 @@ function initCapsuleSection() {
 }
 
 /* ==========================================================================
-   5. SCHEDULE, FILTERING & RSVP (WITH ICS EXPORT)
+   6. SCHEDULE, FILTERING & RSVP (WITH ICS EXPORT)
    ========================================================================== */
 const EVENTS_DATA = [
   {
@@ -566,6 +677,7 @@ function initScheduleAndRsvp() {
   const filterBtns = document.querySelectorAll('.filter-btn');
 
   function renderRows(filter = 'ALL') {
+    if (!container) return;
     container.innerHTML = '';
     const filtered = filter === 'ALL' 
       ? EVENTS_DATA 
@@ -583,7 +695,10 @@ function initScheduleAndRsvp() {
         <div class="sched-location">${ev.location}</div>
         <div><span class="badge ${ev.cat === 'RUN' ? 'badge-lime' : ev.cat === 'DROP' ? 'badge-cobalt' : ''}">${ev.cat}</span></div>
         <div class="sched-action">
-          <button type="button" data-event-id="${ev.id}">RSVP →</button>
+          <button type="button" data-event-id="${ev.id}">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11z"/></svg>
+            RSVP →
+          </button>
         </div>
       `;
       container.appendChild(row);
@@ -621,6 +736,8 @@ function initScheduleAndRsvp() {
     rsvpModal.classList.add('open');
   }
 
+  window.openRsvpForEvent = openRsvpModal;
+
   if (closeRsvpBtn) {
     closeRsvpBtn.addEventListener('click', () => rsvpModal.classList.remove('open'));
   }
@@ -635,9 +752,8 @@ function initScheduleAndRsvp() {
       e.preventDefault();
       const name = document.getElementById('rsvpInputName').value || 'Crew Athlete';
       rsvpModal.classList.remove('open');
-      showToast(`✓ Confirmed! See you there, ${name}.`);
+      showToast(`✓ Confirmed! Calendar Invite (.ICS) downloaded for ${name}.`);
 
-      // Automatically trigger real .ics download
       if (selectedRsvpEvent) {
         downloadCalendarFile(selectedRsvpEvent);
       }
@@ -645,6 +761,16 @@ function initScheduleAndRsvp() {
     });
   }
 }
+
+// Global filter & scroll function for The Crew cards
+window.filterAndScrollToSchedule = function(filterCategory) {
+  const filterBtn = document.querySelector(`.filter-btn[data-filter="${filterCategory}"]`);
+  if (filterBtn) filterBtn.click();
+  const schedSec = document.getElementById('schedule');
+  if (schedSec) {
+    schedSec.scrollIntoView({ behavior: 'smooth' });
+  }
+};
 
 function downloadCalendarFile(ev) {
   const icsContent = [
@@ -674,7 +800,45 @@ function downloadCalendarFile(ev) {
 }
 
 /* ==========================================================================
-   6. ATHLETE PASS STUDIO (PERSONALIZED DIGITAL CARD GENERATOR)
+   7. SUNDAY TABLE MENU MODAL
+   ========================================================================== */
+function initTableMenuModal() {
+  const menuModal = document.getElementById('menuModal');
+  const openBtn = document.getElementById('openMenuBtn');
+  const triggerBtn = document.getElementById('viewMenuTriggerBtn');
+  const closeBtn = document.getElementById('closeMenuModal');
+  const rsvpTableBtn = document.getElementById('rsvpTableDirectBtn');
+
+  function openMenu() {
+    if (menuModal) menuModal.classList.add('open');
+  }
+
+  function closeMenu() {
+    if (menuModal) menuModal.classList.remove('open');
+  }
+
+  if (openBtn) openBtn.addEventListener('click', openMenu);
+  if (triggerBtn) triggerBtn.addEventListener('click', openMenu);
+  if (closeBtn) closeBtn.addEventListener('click', closeMenu);
+  if (menuModal) {
+    menuModal.addEventListener('click', (e) => {
+      if (e.target === menuModal) closeMenu();
+    });
+  }
+
+  if (rsvpTableBtn) {
+    rsvpTableBtn.addEventListener('click', () => {
+      closeMenu();
+      selectedRsvpEvent = EVENTS_DATA.find(e => e.id === 5);
+      if (window.openRsvpForEvent && selectedRsvpEvent) {
+        window.openRsvpForEvent(selectedRsvpEvent);
+      }
+    });
+  }
+}
+
+/* ==========================================================================
+   8. ATHLETE PASS STUDIO (PERSONALIZED DIGITAL CARD GENERATOR)
    ========================================================================== */
 function initPassStudio() {
   const nameInput = document.getElementById('passInputName');
@@ -687,8 +851,9 @@ function initPassStudio() {
   const cardHeat = document.getElementById('cardUserHeat');
   const cardFocus = document.getElementById('cardUserFocus');
   const cardId = document.getElementById('cardIdDisplay');
+  const cardEl = document.getElementById('digitalPassCard');
 
-  function updatePass() {
+  function updatePass(regenerateCode = false) {
     const rawName = nameInput.value.trim() || 'MAYA LIN';
     const rawHandle = handleInput.value.trim() || '@mayasprints';
     const heatVal = heatSelect.value;
@@ -699,16 +864,49 @@ function initPassStudio() {
     cardHeat.textContent = heatVal;
     cardFocus.textContent = focusVal;
 
-    // Generate unique member hash
-    const initials = rawName.split(' ').map(s => s[0]).join('').toUpperCase() || 'BK';
-    const hash = Math.floor(1000 + Math.random() * 8999);
-    cardId.textContent = `#BLK-23-${initials}${hash}`;
+    if (regenerateCode) {
+      const initials = rawName.split(' ').map(s => s[0]).join('').toUpperCase() || 'BK';
+      const hash = Math.floor(1000 + Math.random() * 8999);
+      cardId.textContent = `#BLK-23-${initials}${hash}`;
+    }
   }
 
-  nameInput.addEventListener('input', updatePass);
-  handleInput.addEventListener('input', updatePass);
-  heatSelect.addEventListener('change', updatePass);
-  focusSelect.addEventListener('change', updatePass);
+  nameInput.addEventListener('input', () => updatePass(false));
+  handleInput.addEventListener('input', () => updatePass(false));
+  heatSelect.addEventListener('change', () => updatePass(false));
+  focusSelect.addEventListener('change', () => updatePass(false));
+
+  // Copy ID button
+  const copyBtn = document.getElementById('copyPassIdBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', () => {
+      const idText = cardId.textContent;
+      navigator.clipboard.writeText(idText).then(() => {
+        showToast(`✓ Copied ${idText} to clipboard!`);
+      }).catch(() => {
+        showToast(`Member ID: ${idText}`);
+      });
+    });
+  }
+
+  // Randomize / Re-roll ID
+  const randomizeBtn = document.getElementById('randomizeIdBtn');
+  if (randomizeBtn) {
+    randomizeBtn.addEventListener('click', () => {
+      updatePass(true);
+      showToast(`⚡ Generated New Member ID: ${cardId.textContent}`);
+    });
+  }
+
+  // Toggle Holo Foil Glow
+  const holoBtn = document.getElementById('toggleHoloBtn');
+  if (holoBtn && cardEl) {
+    holoBtn.addEventListener('click', () => {
+      const isHolo = cardEl.classList.toggle('holo-active');
+      holoBtn.classList.toggle('active', isHolo);
+      showToast(isHolo ? '✨ Holographic Foil Effect: Active' : 'Standard Carbon Finish');
+    });
+  }
 
   // Download Card as PNG via Canvas
   const downloadBtn = document.getElementById('downloadPassBtn');
@@ -807,11 +1005,59 @@ function exportCardAsImage() {
   link.click();
   document.body.removeChild(link);
 
-  showToast('✓ Athlete Pass Downloaded (.PNG)');
+  showToast('✓ Official Athlete Pass Downloaded (.PNG)');
 }
 
 /* ==========================================================================
-   7. TOAST NOTIFICATION UTILITY
+   9. GLOBAL NAVIGATION & FOOTER BUTTONS
+   ========================================================================== */
+function initGlobalNavigationButtons() {
+  // Brand logo & back-to-top buttons
+  const logoBtn = document.getElementById('brandLogoBtn');
+  const footerLogo = document.getElementById('footerLogoBtn');
+  const backToTop = document.getElementById('backToTopBtn');
+
+  function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    showToast('Returned to Top');
+  }
+
+  if (logoBtn) logoBtn.addEventListener('click', (e) => { e.preventDefault(); scrollToTop(); });
+  if (footerLogo) footerLogo.addEventListener('click', scrollToTop);
+  if (backToTop) backToTop.addEventListener('click', scrollToTop);
+
+  // Join Cohort form submit button
+  const joinBtn = document.getElementById('joinSubmitBtn');
+  const joinInput = document.getElementById('emailCohortInput');
+
+  if (joinBtn && joinInput) {
+    joinBtn.addEventListener('click', () => {
+      const email = joinInput.value.trim();
+      if (email && email.includes('@') && email.includes('.')) {
+        showToast(`✓ Request Confirmed! Welcome to Cohort 23, ${email}`);
+        joinInput.value = '';
+        joinBtn.innerHTML = `You're In <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>`;
+      } else {
+        showToast('⚠️ Please enter a valid email address.');
+        joinInput.focus();
+      }
+    });
+  }
+
+  // Social & Community Connect Buttons
+  const strava = document.getElementById('stravaClubLink');
+  const insta = document.getElementById('instagramLink');
+  const spotify = document.getElementById('spotifyPlaylistLink');
+  const discord = document.getElementById('discordLink');
+
+  if (strava) strava.addEventListener('click', (e) => { e.preventDefault(); showToast('🚴 Strava: THE BLOCK Run Club (Sync verified)'); });
+  if (insta) insta.addEventListener('click', (e) => { e.preventDefault(); showToast('📸 Instagram: @theblockclub (Copied handle)'); });
+  if (spotify) spotify.addEventListener('click', (e) => { e.preventDefault(); showToast('🎧 Spotify: Block Beats Vol. 14 (168 BPM Cadence playlist)'); });
+  if (discord) discord.addEventListener('click', (e) => { e.preventDefault(); showToast('💬 Discord Member Lounge: discord.gg/theblockclub'); });
+}
+
+/* ==========================================================================
+   10. TOAST NOTIFICATION UTILITY
    ========================================================================== */
 function showToast(message) {
   let container = document.querySelector('.toast-container');
@@ -835,12 +1081,12 @@ function showToast(message) {
 }
 
 /* ==========================================================================
-   8. MOBILE NAVIGATION DRAWER
+   11. MOBILE NAVIGATION DRAWER
    ========================================================================== */
 function initMobileNav() {
-  const hamburger = document.querySelector('.hamburger');
-  const drawer = document.querySelector('.mobile-nav-drawer');
-  const closeBtn = document.querySelector('.mobile-drawer-close');
+  const hamburger = document.getElementById('hamburgerBtn');
+  const drawer = document.getElementById('mobileDrawer');
+  const closeBtn = document.getElementById('closeDrawerBtn');
 
   if (hamburger && drawer) {
     hamburger.addEventListener('click', () => drawer.classList.add('open'));

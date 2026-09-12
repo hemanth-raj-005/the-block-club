@@ -17,7 +17,7 @@
        ========================================================================== -->
   <nav>
     <div class="nav-brand">
-      <a href="#" class="nav-mark">THE<span>BLOCK</span></a>
+      <a href="#" class="nav-mark" id="brandLogoBtn">THE<span>BLOCK</span></a>
       <span class="nav-tagline mono">ATHLETIC CLUB // EST. TWO WINTERS AGO</span>
     </div>
 
@@ -26,13 +26,17 @@
       <a href="#crew">The Crew</a>
       <a href="#capsule">FW26 Capsule</a>
       <a href="#routes">Run Division</a>
+      <a href="#table-spotlight">The Table</a>
       <a href="#schedule">Runs & Drops</a>
       <a href="#pass-studio">Athlete Pass</a>
     </div>
 
     <div class="nav-actions">
-      <!-- Ambient Cadence Synthesizer Toggle -->
-      <button class="audio-widget" id="audioToggleBtn" title="Toggle Cadence Pulse Synthesizer">
+      <!-- Ambient Cadence Synthesizer Toggle with SVG Volume Icon -->
+      <button class="audio-widget" id="audioToggleBtn" title="Toggle Cadence Pulse Synthesizer" aria-label="Toggle Cadence Audio">
+        <svg class="icon-svg" viewBox="0 0 24 24" id="audioIconSvg">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z"/>
+        </svg>
         <div class="audio-bars">
           <span class="audio-bar"></span>
           <span class="audio-bar"></span>
@@ -43,19 +47,27 @@
       </button>
 
       <a class="btn btn-primary btn-sm" href="#pass-studio">Get Card</a>
-      <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Open Navigation Menu">
+        <svg class="icon-svg icon-lg" viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
     </div>
   </nav>
 
   <!-- Mobile Drawer -->
-  <div class="mobile-nav-drawer">
-    <button class="mobile-drawer-close" aria-label="Close Menu">✕</button>
+  <div class="mobile-nav-drawer" id="mobileDrawer">
+    <button class="mobile-drawer-close" id="closeDrawerBtn" aria-label="Close Menu">
+      <svg class="icon-svg icon-lg" viewBox="0 0 24 24">
+        <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+      </svg>
+    </button>
     <a href="#manifesto">Manifesto</a>
     <a href="#crew">The Crew</a>
     <a href="#capsule">FW26 Capsule</a>
     <a href="#routes">Run Division</a>
-    <a href="#schedule">Runs & Drops</a>
     <a href="#table-spotlight">The Table</a>
+    <a href="#schedule">Runs & Drops</a>
     <a href="#pass-studio">Athlete Pass</a>
     <a href="#join" class="btn btn-lime">Join Cohort 23</a>
   </div>
@@ -65,11 +77,26 @@
        ========================================================================== -->
   <div class="ticker-bar">
     <div class="ticker-track">
-      <div class="ticker-item"><span>⚡</span> NEXT RUN: SUNDAY LONG RUN (8.2 MI) @ 5:45 AM</div>
-      <div class="ticker-item"><span>■</span> FW26 CAPSULE DROP 02: ALLOCATION OPENS IN 4 DAYS</div>
-      <div class="ticker-item"><span>⚡</span> TRACK NIGHT: 400M REPEATS UNDER FLOODLIGHTS</div>
-      <div class="ticker-item"><span>■</span> THE TABLE: POST-RUN FRESH PASTA & NATURAL WINE</div>
-      <div class="ticker-item"><span>⚡</span> ATHLETE-CORE // COMMUNITY FIRST // NO TRYOUTS</div>
+      <div class="ticker-item">
+        <svg class="icon-svg text-crimson" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+        NEXT RUN: SUNDAY LONG RUN (8.2 MI) @ 5:45 AM
+      </div>
+      <div class="ticker-item">
+        <svg class="icon-svg text-cobalt" viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/></svg>
+        FW26 CAPSULE DROP 02: ALLOCATION OPENS IN 4 DAYS
+      </div>
+      <div class="ticker-item">
+        <svg class="icon-svg text-crimson" viewBox="0 0 24 24"><path d="M7 2v11h3v9l7-12h-4l4-8z"/></svg>
+        TRACK NIGHT: 400M REPEATS UNDER FLOODLIGHTS
+      </div>
+      <div class="ticker-item">
+        <svg class="icon-svg text-lime" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14h2v2h-2v-2zm0-10h2v8h-2V6z"/></svg>
+        THE TABLE: POST-RUN FRESH PASTA & NATURAL WINE
+      </div>
+      <div class="ticker-item">
+        <svg class="icon-svg text-cobalt" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm0 3.99L19.53 19H4.47L12 5.99z"/></svg>
+        ATHLETE-CORE // COMMUNITY FIRST // NO TRYOUTS
+      </div>
     </div>
   </div>
 
@@ -98,41 +125,51 @@
       </p>
 
       <div class="hero-cta-group">
-        <a class="btn btn-lime" href="#pass-studio">Generate Athlete Pass →</a>
-        <a class="btn btn-outline" href="#capsule">Explore FW26 Drop</a>
+        <a class="btn btn-lime" href="#pass-studio">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-7-2h5v-2h-5v2zm0-4h5v-2h-5v2zm0-4h5V7h-5v2zM7 7h4v4H7V7zm0 6h4v4H7v-4z"/></svg>
+          Generate Athlete Pass →
+        </a>
+        <a class="btn btn-outline" href="#capsule">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          Explore FW26 Drop
+        </a>
       </div>
 
       <!-- Quick Club Telemetry Strip -->
       <div class="hero-stats">
-        <div class="stat-item">
+        <div class="stat-item" title="Dawn Protocol run time">
           <div class="stat-val">5:45A</div>
           <div class="stat-label">DAWN PROTOCOL</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" title="Collective mileage this week">
           <div class="stat-val">420+</div>
           <div class="stat-label">MILES LOGGED / WK</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" title="Zero tryouts or gatekeeping">
           <div class="stat-val">0</div>
           <div class="stat-label">TRYOUTS REQUIRED</div>
         </div>
-        <div class="stat-item">
+        <div class="stat-item" title="Communal cooking level">
           <div class="stat-val">100%</div>
           <div class="stat-label">HOMEMADE TABLE</div>
         </div>
       </div>
     </div>
 
-    <!-- Hero Editorial Visual Frame -->
-    <div class="hero-visual-card">
+    <!-- Hero Editorial Visual Frame with Interactive 3M Reflective Toggle -->
+    <div class="hero-visual-card" id="heroVisualCard">
       <div class="hero-image-wrapper">
-        <img src="assets/hero-runner.jpg" alt="THE BLOCK athletes running through wet neon city streets in high-fashion reflective kit">
+        <img src="assets/hero-runner.jpg" id="heroRunnerImg" alt="THE BLOCK athletes running through wet neon city streets in high-fashion reflective kit">
         <div class="hud-tag-top mono">LAT: 40.7128° N // LON: 74.0060° W</div>
-        <div class="hud-tag-bottom mono">LOOK 04: HYBRID SHELL + 3M REFLECTIVE GRID</div>
+        <div class="hud-tag-bottom mono" id="hudReflectiveLabel">LOOK 04: HYBRID SHELL + 3M REFLECTIVE GRID</div>
       </div>
       <div class="hero-visual-footer">
         <div class="mono" style="color:var(--paper-dim);">CADENCE SPEEDPAD: 168 SPM</div>
-        <div class="badge badge-lime">LIVE COHORT RECON</div>
+        <!-- 3M Reflective Flash Toggle Button -->
+        <button class="btn-reflective-toggle" id="toggleReflectiveBtn" title="Toggle 3M High-Vis Illumination">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          <span id="reflectiveBtnText">3M NIGHT GLOW: OFF</span>
+        </button>
       </div>
     </div>
   </header>
@@ -156,14 +193,25 @@
 
       <div class="manifesto-pillars">
         <div class="pillar-item">
+          <div class="pillar-icon-box">
+            <svg class="icon-svg icon-lg" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+          </div>
           <h4 class="display">Zero Gatekeeping</h4>
-          <p>Whether you cruise at a 5:30/mi pace or chase a 11:00/mi stride, our finish-line energy and post-run espresso toast are identical.</p>
+          <p>Whether you cruise at a 5:30/mi pace or chase an 11:00/mi stride, our finish-line energy and post-run espresso toast are identical.</p>
         </div>
+
         <div class="pillar-item">
+          <div class="pillar-icon-box">
+            <svg class="icon-svg icon-lg" viewBox="0 0 24 24"><path d="M21.6 8.2l-6.5-6.5c-.8-.8-2-.8-2.8 0L3.4 10.6c-.8.8-.8 2 0 2.8l6.5 6.5c.8.8 2 .8 2.8 0l8.9-8.9c.8-.8.8-2 0-2.8zM14 15.5l-3.5-3.5L14 8.5l3.5 3.5L14 15.5z"/></svg>
+          </div>
           <h4 class="display">Tactile Apparel</h4>
           <p>No polyester templates. We prototype small-batch technical gear made from Japanese ripstops and 3M Scotchlite reflectives.</p>
         </div>
+
         <div class="pillar-item">
+          <div class="pillar-icon-box">
+            <svg class="icon-svg icon-lg" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+          </div>
           <h4 class="display">The Sunday Table</h4>
           <p>Sweat gets you through the door. Shared meals keep you in the family. We celebrate promotions, recovery, and life milestones.</p>
         </div>
@@ -193,9 +241,15 @@
         <p>
           5:45 AM starts, sunrise waterfront splits, interval track heats under the floodlights, and a group chat that celebrates every personal best.
         </p>
-        <div class="crew-card-tag">
-          <span>TUE / THU / SAT — 5:45 AM</span>
-          <span class="badge badge-lime">HEATS 1-3</span>
+        <div class="crew-card-actions">
+          <button type="button" class="btn btn-outline btn-sm" onclick="filterAndScrollToSchedule('RUN')">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7"/></svg>
+            Explore Running Sessions →
+          </button>
+          <div class="crew-card-tag">
+            <span>TUE / THU / SAT — 5:45 AM</span>
+            <span class="badge badge-lime">HEATS 1-3</span>
+          </div>
         </div>
       </div>
 
@@ -206,9 +260,15 @@
         <p>
           In-house apparel design and silkscreen printing lab. Every capsule drop starts as a hand sketch on our kitchen workbenches, not a factory template.
         </p>
-        <div class="crew-card-tag">
-          <span>STUDIO NIGHTS — WED 7:00 PM</span>
-          <span class="badge badge-cobalt">DIY LAB</span>
+        <div class="crew-card-actions">
+          <button type="button" class="btn btn-outline btn-sm" onclick="filterAndScrollToSchedule('GATHER')">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9 0 2.12.74 4.07 1.97 5.61L4.35 19.4c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l1.9-1.9C9.28 19.58 10.59 20 12 20c4.97 0 9-4.03 9-9s-4.03-9-9-9zm0 15c-3.31 0-6-2.69-6-6s2.69-6 6-6 6 2.69 6 6-2.69 6-6 6z"/></svg>
+            Makers Lab Nights →
+          </button>
+          <div class="crew-card-tag">
+            <span>STUDIO NIGHTS — WED 7:00 PM</span>
+            <span class="badge badge-cobalt">DIY LAB</span>
+          </div>
         </div>
       </div>
 
@@ -219,9 +279,15 @@
         <p>
           Post-long-run feasts, birthdays, and the crew that shows up to your life moves, promotions, and heartbreaks. One long table, rotating chefs.
         </p>
-        <div class="crew-card-tag">
-          <span>SUNDAYS — ROTATING HOST 6:30 PM</span>
-          <span class="badge">COMMUNAL</span>
+        <div class="crew-card-actions">
+          <button type="button" class="btn btn-outline btn-sm" id="viewMenuTriggerBtn">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+            View Sunday Chef Menu →
+          </button>
+          <div class="crew-card-tag">
+            <span>SUNDAYS — ROTATING HOST 6:30 PM</span>
+            <span class="badge">COMMUNAL</span>
+          </div>
         </div>
       </div>
     </div>
@@ -229,7 +295,7 @@
 
   <!-- ==========================================================================
        STREETWEAR ATELIER & FW26 CAPSULE DROP
-       ========================================================================== */ -->
+       ========================================================================== -->
   <section class="section-capsule" id="capsule">
     <div class="section-head">
       <div>
@@ -281,13 +347,14 @@
           <li>Laser-cut heat vent micro-mesh</li>
         </ul>
 
-        <button class="btn btn-primary" id="reserveCapsuleHeroBtn" onclick="document.querySelector('.product-card').click();">
+        <button class="btn btn-primary" id="reserveCapsuleHeroBtn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
           Inspect Capsule Spec Sheet →
         </button>
       </div>
     </div>
 
-    <!-- 4 Sub-Products Grid -->
+    <!-- 4 Sub-Products Grid with Interactive Quick View -->
     <div class="products-subgrid">
       <div class="product-card" data-product="p1">
         <div class="product-card-top">
@@ -297,6 +364,10 @@
         <div class="product-card-title">AeroGrid 3M Shell</div>
         <div class="product-card-price">$145.00</div>
         <div class="product-card-meta mono">Iridescent Slate / Black</div>
+        <button type="button" class="product-card-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          Inspect Specs
+        </button>
       </div>
 
       <div class="product-card" data-product="p2">
@@ -307,6 +378,10 @@
         <div class="product-card-title">Interval 5" Split Short</div>
         <div class="product-card-price">$78.00</div>
         <div class="product-card-meta mono">Stealth Black / Lime</div>
+        <button type="button" class="product-card-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          Inspect Specs
+        </button>
       </div>
 
       <div class="product-card" data-product="p3">
@@ -317,6 +392,10 @@
         <div class="product-card-title">Unsanctioned Pack Cap</div>
         <div class="product-card-price">$42.00</div>
         <div class="product-card-meta mono">Matte Carbon / 3M Strap</div>
+        <button type="button" class="product-card-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          Inspect Specs
+        </button>
       </div>
 
       <div class="product-card" data-product="p4">
@@ -327,6 +406,10 @@
         <div class="product-card-title">Recovery 480gsm Crewneck</div>
         <div class="product-card-price">$95.00</div>
         <div class="product-card-meta mono">Chalk Heather Organic Terry</div>
+        <button type="button" class="product-card-btn">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>
+          Inspect Specs
+        </button>
       </div>
     </div>
   </section>
@@ -341,18 +424,25 @@
         <h2 class="display">Interactive Route Telemetry</h2>
       </div>
       <p class="mono text-muted" style="max-width:34ch;">
-        Switch circuits, slide your target pace, and calculate your cohort heat assignment.
+        Switch circuits, click preset paces, or drag the slider to calculate heat assignment.
       </p>
     </div>
 
     <div class="route-container">
-      <!-- Interactive Route Canvas -->
+      <!-- Interactive Route Canvas with Playback Controls -->
       <div class="route-canvas-wrap">
         <canvas id="routeCanvas"></canvas>
         <div class="canvas-telemetry-overlay">
           <span class="badge badge-lime">GPS REAL-TIME SIMULATION</span>
           <span class="badge" id="routeDisplayDist">8.2 MI</span>
         </div>
+
+        <button type="button" class="canvas-playback-btn" id="toggleRunnerPlaybackBtn" title="Play or Pause Runner Animation">
+          <svg class="icon-svg" id="playbackIcon" viewBox="0 0 24 24">
+            <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+          </svg>
+          <span id="playbackText">RUNNER: ACTIVE</span>
+        </button>
       </div>
 
       <!-- Route Controls & Dynamic Pace Engine -->
@@ -370,14 +460,22 @@
           </p>
         </div>
 
-        <!-- Dynamic Pace Calculator -->
+        <!-- Dynamic Pace Calculator with Quick Presets -->
         <div class="pace-calculator-box">
+          <div class="mono text-muted" style="margin-bottom:0.5rem;">QUICK PACE PRESETS:</div>
+          <div class="pace-preset-group">
+            <button type="button" class="pace-preset-btn" data-pace="345">5K Sprint (5:45/mi)</button>
+            <button type="button" class="pace-preset-btn" data-pace="420">10K Tempo (7:00/mi)</button>
+            <button type="button" class="pace-preset-btn" data-pace="495">Half Marathon (8:15/mi)</button>
+            <button type="button" class="pace-preset-btn" data-pace="570">Easy Recovery (9:30/mi)</button>
+          </div>
+
           <div class="pace-slider-label">
             <span>TARGET PACE:</span>
             <span class="curr-pace" id="currPaceDisplay">7:00 /mi</span>
           </div>
 
-          <input type="range" class="pace-slider" id="paceSlider" min="330" max="630" step="15" value="420">
+          <input type="range" class="pace-slider" id="paceSlider" min="330" max="630" step="15" value="420" aria-label="Target Pace Slider">
 
           <div class="pace-results-grid">
             <div class="pace-metric">
@@ -423,9 +521,14 @@
       <div class="table-quotes">
         "You don't talk about quarterly OKRs or corporate ladders here. You talk about split paces, favorite sneakers, design sketches, and life."
       </div>
-      <p style="font-size:0.95rem; color:var(--paper-dim);">
+      <p style="font-size:0.95rem; color:var(--paper-dim); margin-bottom:1.8rem;">
         Every member has a turn to cook or bring a dish from their heritage. No catering companies. Just heart and good olive oil.
       </p>
+
+      <button type="button" class="btn btn-lime" id="openMenuBtn">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M11 9H9V2H7v7H5V2H3v7c0 2.12 1.66 3.84 3.75 3.97V22h2.5v-9.03C11.34 12.84 13 11.12 13 9V2h-2v7zm5-3v8h2.5v8H21V2c-2.76 0-5 2.24-5 4z"/></svg>
+        Inspect Sunday Feast Menu →
+      </button>
     </div>
   </section>
 
@@ -503,12 +606,15 @@
           </select>
         </div>
 
-        <button type="button" class="btn btn-lime" id="downloadPassBtn">
-          Download Official Pass (.PNG) ↓
-        </button>
+        <div class="pass-actions-row">
+          <button type="button" class="btn btn-lime" id="downloadPassBtn" style="flex:1;">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+            Download Official Pass (.PNG) ↓
+          </button>
+        </div>
       </form>
 
-      <!-- Live Digital Pass Card Preview -->
+      <!-- Live Digital Pass Card Preview with Quick Actions -->
       <div class="pass-preview-container">
         <div class="digital-pass-card" id="digitalPassCard">
           <div class="pass-card-header">
@@ -563,7 +669,22 @@
             </div>
           </div>
         </div>
-        <div class="mono text-muted" style="font-size:0.75rem;">⚡ REAL-TIME LIVE PREVIEW // 100% EXPORTABLE</div>
+
+        <!-- Interactive Quick Utilities for Card -->
+        <div class="pass-card-quick-actions">
+          <button type="button" class="btn btn-outline btn-sm" id="copyPassIdBtn" title="Copy Member ID to Clipboard">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+            Copy ID
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" id="randomizeIdBtn" title="Generate New Barcode Hash">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/></svg>
+            Re-Roll ID
+          </button>
+          <button type="button" class="btn btn-outline btn-sm" id="toggleHoloBtn" title="Toggle Holographic Foil Glow">
+            <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2l2.4 7.2h7.6l-6.1 4.5 2.3 7.3-6.2-4.6-6.2 4.6 2.3-7.3-6.1-4.5h7.6z"/></svg>
+            Holo Foil
+          </button>
+        </div>
       </div>
     </div>
   </section>
@@ -577,8 +698,9 @@
 
       <div class="join-form-wrap">
         <input type="email" id="emailCohortInput" placeholder="Enter your email address" aria-label="Email address for membership">
-        <button type="button" id="joinSubmitBtn" onclick="if(document.getElementById('emailCohortInput').value){ showToast('✓ Request confirmed! Welcome to Cohort 23.'); document.getElementById('emailCohortInput').value=''; this.textContent='You\'re In →'; } else { showToast('Please enter a valid email.'); }">
-          Request Invite →
+        <button type="button" id="joinSubmitBtn">
+          Request Invite
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
         </button>
       </div>
 
@@ -594,7 +716,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="nav-mark display" style="font-size:2.2rem; margin-bottom:0.8rem;">THE<span>BLOCK</span></div>
+        <div class="nav-mark display" style="font-size:2.2rem; margin-bottom:0.8rem;" id="footerLogoBtn">THE<span>BLOCK</span></div>
         <p style="font-size:0.88rem; color:var(--paper-dim); max-width:28ch; line-height:1.6;">
           An athletic club built around community, streetwear, and lifestyle culture, not just the sport.
         </p>
@@ -624,17 +746,40 @@
       <div class="footer-col">
         <h5>Connect</h5>
         <ul>
-          <li><a href="#" onclick="showToast('Strava Club link copied!'); return false;">Strava Club</a></li>
-          <li><a href="#" onclick="showToast('Instagram: @theblockclub'); return false;">Instagram</a></li>
-          <li><a href="#" onclick="showToast('Spotify: THE BLOCK RADIO Vol. 14'); return false;">Spotify Playlist</a></li>
-          <li><a href="#" onclick="showToast('Discord Member Lounge link copied!'); return false;">Discord Lounge</a></li>
+          <li>
+            <a href="#" id="stravaClubLink">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7.008 13.828h4.172"/></svg>
+              Strava Club
+            </a>
+          </li>
+          <li>
+            <a href="#" id="instagramLink">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              @theblockclub
+            </a>
+          </li>
+          <li>
+            <a href="#" id="spotifyPlaylistLink">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+              Block Beats Vol. 14
+            </a>
+          </li>
+          <li>
+            <a href="#" id="discordLink">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg>
+              Discord Lounge
+            </a>
+          </li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
       <span>THE BLOCK ATHLETIC CLUB — EST. TWO WINTERS AGO // ALL RIGHTS RESERVED</span>
-      <span>COORDINATES: 40.7128° N, 74.0060° W // NON-ELITIST RUN CULTURE</span>
+      <button type="button" class="btn-back-to-top" id="backToTopBtn">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+        BACK TO TOP ↑
+      </button>
     </div>
   </footer>
 
@@ -648,13 +793,22 @@
       <span class="badge badge-lime" style="margin-bottom:0.8rem;">FW26 TECHNICAL APPAREL</span>
       <h3 class="display" id="modalProductTitle" style="font-size:2.2rem; margin-bottom:0.4rem;">AEROGRID 3M SHELL</h3>
       <div id="modalProductPrice" style="font-family:var(--font-mono); font-size:1.1rem; color:var(--lime); margin-bottom:0.8rem;">$145.00</div>
-      <div id="modalProductColor" class="mono text-muted" style="margin-bottom:1.2rem;">Colorway: Iridescent Slate</div>
+      <div id="modalProductColor" class="mono text-muted" style="margin-bottom:0.8rem;">Colorway: Iridescent Slate</div>
+
+      <!-- Interactive Color Swatches -->
+      <div class="swatch-group">
+        <button type="button" class="color-swatch-btn active" style="background:#1e1d24;" title="Slate Black" data-color="Slate Black"></button>
+        <button type="button" class="color-swatch-btn" style="background:#D4FF3D;" title="High-Vis Acid Lime" data-color="High-Vis Acid Lime"></button>
+        <button type="button" class="color-swatch-btn" style="background:#2F49FF;" title="Electric Cobalt" data-color="Electric Cobalt"></button>
+      </div>
+
       <p id="modalProductDesc" style="color:var(--paper-dim); font-size:0.92rem; line-height:1.6; margin-bottom:1.5rem;"></p>
 
       <div class="mono" style="margin-bottom:0.6rem; color:var(--paper);">TECHNICAL SPECIFICATIONS:</div>
-      <ul id="modalProductSpecs" class="product-features-list" style="margin-bottom:1.8rem;"></ul>
+      <ul id="modalProductSpecs" class="product-features-list" style="margin-bottom:1.4rem;"></ul>
 
-      <div style="margin-bottom:1.5rem;">
+      <!-- Interactive Size Selector -->
+      <div style="margin-bottom:1.2rem;">
         <div class="mono" style="margin-bottom:0.6rem; color:var(--paper);">SELECT SIZE:</div>
         <div style="display:flex; gap:0.6rem;">
           <button type="button" class="btn btn-outline btn-sm size-btn">XS</button>
@@ -665,7 +819,17 @@
         </div>
       </div>
 
+      <!-- Quantity Selector -->
+      <div class="mono" style="margin-bottom:0.4rem; color:var(--paper);">QUANTITY:</div>
+      <div class="qty-control">
+        <button type="button" class="qty-btn" id="qtyMinusBtn">-</button>
+        <span class="qty-val" id="qtyDisplay">1</span>
+        <button type="button" class="qty-btn" id="qtyPlusBtn">+</button>
+        <span class="mono text-muted" style="font-size:0.75rem; margin-left:0.5rem;">(Max 2 per member)</span>
+      </div>
+
       <button type="button" class="btn btn-lime" id="reserveProductBtn" style="width:100%;">
+        <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
         Reserve Member Allocation →
       </button>
     </div>
@@ -698,9 +862,47 @@
           </select>
         </div>
         <button type="submit" class="btn btn-lime" style="margin-top:0.8rem;">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
           Confirm RSVP & Download .ICS Calendar Invite →
         </button>
       </form>
+    </div>
+  </div>
+
+  <!-- Sunday Table Menu Modal -->
+  <div class="modal-backdrop" id="menuModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeMenuModal" aria-label="Close Menu">✕</button>
+      <span class="badge badge-lime" style="margin-bottom:0.8rem;">ROTATING SUNDAY HOST CHEF</span>
+      <h3 class="display" style="font-size:2.2rem; margin-bottom:0.4rem;">THE SUNDAY TABLE MENU</h3>
+      <div class="mono text-muted" style="margin-bottom:1.5rem;">HOSTED BY: MARCO & ELENA // URBAN COURTYARD // 6:30 PM</div>
+
+      <div style="display:flex; flex-direction:column; gap:1.2rem; margin-bottom:1.8rem;">
+        <div style="border-left:2px solid var(--lime); padding-left:1rem;">
+          <div style="font-family:var(--font-headline); font-weight:700; color:var(--paper);">PRIMO: Handmade Pappardelle al Ragù di Funghi</div>
+          <div style="font-size:0.85rem; color:var(--paper-dim); margin-top:0.2rem;">Wild forest chantrelles, slow-braised shallots, thyme, 24-month Parmigiano-Reggiano, and hand-rolled egg yolk dough.</div>
+          <span class="badge badge-lime" style="margin-top:0.4rem;">VEG OPTION AVAILABLE</span>
+        </div>
+
+        <div style="border-left:2px solid var(--cobalt-bright); padding-left:1rem;">
+          <div style="font-family:var(--font-headline); font-weight:700; color:var(--paper);">SECONDO: Roasted Heirloom Beets & Burrata Pugliese</div>
+          <div style="font-size:0.85rem; color:var(--paper-dim); margin-top:0.2rem;">Toasted pistachios, orange zest reduction, cold-pressed Sicilian olive oil, with warm country sourdough loaf.</div>
+        </div>
+
+        <div style="border-left:2px solid var(--crimson); padding-left:1rem;">
+          <div style="font-family:var(--font-headline); font-weight:700; color:var(--paper);">VINO: Domaine Macle Jura Skin-Contact Orange Wine</div>
+          <div style="font-size:0.85rem; color:var(--paper-dim); margin-top:0.2rem;">Biodynamic, unfiltered, naturally fermented with wild yeast.</div>
+        </div>
+
+        <div style="border-left:2px solid var(--paper); padding-left:1rem;">
+          <div style="font-family:var(--font-headline); font-weight:700; color:var(--paper);">DOLCE: Single-Origin Espresso Tiramisu</div>
+          <div style="font-size:0.85rem; color:var(--paper-dim); margin-top:0.2rem;">Ethiopian Yirgacheffe washed roast, savoiardi ladyfingers, velvety mascarpone cream.</div>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-lime" id="rsvpTableDirectBtn" style="width:100%;">
+        RSVP For Sunday Dinner Table →
+      </button>
     </div>
   </div>
 
