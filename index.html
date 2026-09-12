@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>THE BLOCK — Cultural Sports Club & Streetwear Collective</title>
+  <meta name="description" content="THE BLOCK is an athlete-core run club, design studio, and Sunday dinner table. High-fashion technical streetwear meets community endurance.">
+  <meta property="og:title" content="THE BLOCK — Cultural Sports Club">
+  <meta property="og:description" content="Sport built the discipline. Culture built the community. No tryouts. Just show up.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       TOP NAVIGATION
+       ========================================================================== -->
+  <nav>
+    <div class="nav-brand">
+      <a href="#" class="nav-mark">THE<span>BLOCK</span></a>
+      <span class="nav-tagline mono">ATHLETIC CLUB // EST. TWO WINTERS AGO</span>
+    </div>
+
+    <div class="nav-links">
+      <a href="#manifesto">Manifesto</a>
+      <a href="#crew">The Crew</a>
+      <a href="#capsule">FW26 Capsule</a>
+      <a href="#routes">Run Division</a>
+      <a href="#schedule">Runs & Drops</a>
+      <a href="#pass-studio">Athlete Pass</a>
+    </div>
+
+    <div class="nav-actions">
+      <!-- Ambient Cadence Synthesizer Toggle -->
+      <button class="audio-widget" id="audioToggleBtn" title="Toggle Cadence Pulse Synthesizer">
+        <div class="audio-bars">
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+        </div>
+        <span class="mono audio-text">CADENCE: OFF</span>
+      </button>
+
+      <a class="btn btn-primary btn-sm" href="#pass-studio">Get Card</a>
+      <button class="hamburger" aria-label="Open Navigation Menu">☰</button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div class="mobile-nav-drawer">
+    <button class="mobile-drawer-close" aria-label="Close Menu">✕</button>
+    <a href="#manifesto">Manifesto</a>
+    <a href="#crew">The Crew</a>
+    <a href="#capsule">FW26 Capsule</a>
+    <a href="#routes">Run Division</a>
+    <a href="#schedule">Runs & Drops</a>
+    <a href="#table-spotlight">The Table</a>
+    <a href="#pass-studio">Athlete Pass</a>
+    <a href="#join" class="btn btn-lime">Join Cohort 23</a>
+  </div>
+
+  <!-- ==========================================================================
+       TICKER MARQUEE
+       ========================================================================== -->
+  <div class="ticker-bar">
+    <div class="ticker-track">
+      <div class="ticker-item"><span>⚡</span> NEXT RUN: SUNDAY LONG RUN (8.2 MI) @ 5:45 AM</div>
+      <div class="ticker-item"><span>■</span> FW26 CAPSULE DROP 02: ALLOCATION OPENS IN 4 DAYS</div>
+      <div class="ticker-item"><span>⚡</span> TRACK NIGHT: 400M REPEATS UNDER FLOODLIGHTS</div>
+      <div class="ticker-item"><span>■</span> THE TABLE: POST-RUN FRESH PASTA & NATURAL WINE</div>
+      <div class="ticker-item"><span>⚡</span> ATHLETE-CORE // COMMUNITY FIRST // NO TRYOUTS</div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <header class="hero">
+    <div class="hero-bignum">23</div>
+
+    <div class="hero-content">
+      <div class="hero-meta-strip">
+        <span class="pulse-dot"></span>
+        <span class="mono text-lime">COHORT 23 // OPEN FOR ENLISTMENT</span>
+        <span class="badge" id="liveUtcClock">13:50:00 UTC</span>
+        <span class="badge badge-cobalt">48 / 50 SPOTS FILLED</span>
+      </div>
+
+      <h1 class="display">
+        Not a gym.<br>
+        Not a team.<br>
+        A <em>crew.</em>
+      </h1>
+
+      <p class="hero-sub">
+        THE BLOCK is a run club, an apparel design studio, and a Sunday dinner table — built for people who take their mile splits as seriously as their silhouettes.
+      </p>
+
+      <div class="hero-cta-group">
+        <a class="btn btn-lime" href="#pass-studio">Generate Athlete Pass →</a>
+        <a class="btn btn-outline" href="#capsule">Explore FW26 Drop</a>
+      </div>
+
+      <!-- Quick Club Telemetry Strip -->
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-val">5:45A</div>
+          <div class="stat-label">DAWN PROTOCOL</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">420+</div>
+          <div class="stat-label">MILES LOGGED / WK</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">0</div>
+          <div class="stat-label">TRYOUTS REQUIRED</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val">100%</div>
+          <div class="stat-label">HOMEMADE TABLE</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Editorial Visual Frame -->
+    <div class="hero-visual-card">
+      <div class="hero-image-wrapper">
+        <img src="assets/hero-runner.jpg" alt="THE BLOCK athletes running through wet neon city streets in high-fashion reflective kit">
+        <div class="hud-tag-top mono">LAT: 40.7128° N // LON: 74.0060° W</div>
+        <div class="hud-tag-bottom mono">LOOK 04: HYBRID SHELL + 3M REFLECTIVE GRID</div>
+      </div>
+      <div class="hero-visual-footer">
+        <div class="mono" style="color:var(--paper-dim);">CADENCE SPEEDPAD: 168 SPM</div>
+        <div class="badge badge-lime">LIVE COHORT RECON</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       MANIFESTO
+       ========================================================================== -->
+  <section class="section-manifesto" id="manifesto">
+    <div>
+      <div class="mono text-cobalt" style="margin-bottom:0.8rem;">[01 // MANIFESTO]</div>
+      <div class="mono">CULTURE AS CATALYST</div>
+    </div>
+
+    <div>
+      <p class="manifesto-big">
+        Sport built the discipline. <span class="hl">Culture built the community.</span> We stopped pretending you had to pick one.
+      </p>
+      <p class="manifesto-body">
+        Most clubs want your splits. Traditional athletic brands treat you like a walking billboard. We engineered a third space where 10-mile dawn tempos flow straight into natural wine and homemade tagliatelle, and race kits are designed by the runners wearing them.
+      </p>
+
+      <div class="manifesto-pillars">
+        <div class="pillar-item">
+          <h4 class="display">Zero Gatekeeping</h4>
+          <p>Whether you cruise at a 5:30/mi pace or chase a 11:00/mi stride, our finish-line energy and post-run espresso toast are identical.</p>
+        </div>
+        <div class="pillar-item">
+          <h4 class="display">Tactile Apparel</h4>
+          <p>No polyester templates. We prototype small-batch technical gear made from Japanese ripstops and 3M Scotchlite reflectives.</p>
+        </div>
+        <div class="pillar-item">
+          <h4 class="display">The Sunday Table</h4>
+          <p>Sweat gets you through the door. Shared meals keep you in the family. We celebrate promotions, recovery, and life milestones.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       THE CREW (3 WAYS IN)
+       ========================================================================== -->
+  <section class="section-crew" id="crew">
+    <div class="section-head">
+      <div>
+        <div class="mono text-cobalt" style="margin-bottom:0.5rem;">[02 // COHORT STRUCTURE]</div>
+        <h2 class="display">Who's On It</h2>
+      </div>
+      <p class="mono text-muted" style="max-width:32ch;">
+        Three ways in. Pick the one that sounds like your Tuesday night.
+      </p>
+    </div>
+
+    <div class="crew-grid">
+      <!-- 01 THE RUNNERS -->
+      <div class="crew-card">
+        <div class="crew-card-num">01</div>
+        <h3>The Runners</h3>
+        <p>
+          5:45 AM starts, sunrise waterfront splits, interval track heats under the floodlights, and a group chat that celebrates every personal best.
+        </p>
+        <div class="crew-card-tag">
+          <span>TUE / THU / SAT — 5:45 AM</span>
+          <span class="badge badge-lime">HEATS 1-3</span>
+        </div>
+      </div>
+
+      <!-- 02 THE MAKERS -->
+      <div class="crew-card">
+        <div class="crew-card-num">02</div>
+        <h3>The Makers</h3>
+        <p>
+          In-house apparel design and silkscreen printing lab. Every capsule drop starts as a hand sketch on our kitchen workbenches, not a factory template.
+        </p>
+        <div class="crew-card-tag">
+          <span>STUDIO NIGHTS — WED 7:00 PM</span>
+          <span class="badge badge-cobalt">DIY LAB</span>
+        </div>
+      </div>
+
+      <!-- 03 THE TABLE -->
+      <div class="crew-card">
+        <div class="crew-card-num">03</div>
+        <h3>The Table</h3>
+        <p>
+          Post-long-run feasts, birthdays, and the crew that shows up to your life moves, promotions, and heartbreaks. One long table, rotating chefs.
+        </p>
+        <div class="crew-card-tag">
+          <span>SUNDAYS — ROTATING HOST 6:30 PM</span>
+          <span class="badge">COMMUNAL</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       STREETWEAR ATELIER & FW26 CAPSULE DROP
+       ========================================================================== */ -->
+  <section class="section-capsule" id="capsule">
+    <div class="section-head">
+      <div>
+        <div class="mono text-lime" style="margin-bottom:0.5rem;">[03 // ATELIER APPAREL LAB]</div>
+        <h2 class="display">FW26 Capsule: Drop 02</h2>
+      </div>
+      <p class="mono text-muted" style="max-width:34ch;">
+        Engineered for midnight interval cadence. Streetwear cut, marathon-grade specs.
+      </p>
+    </div>
+
+    <!-- Capsule Spotlight Showcase -->
+    <div class="capsule-showcase">
+      <div class="capsule-image-holder">
+        <img src="assets/capsule-drop.jpg" alt="THE BLOCK FW26 Technical Streetwear Capsule Collection flat lay and model on concrete">
+      </div>
+
+      <div class="capsule-info">
+        <div class="badge badge-lime" style="margin-bottom:1rem;">LIMITED RUN // 120 PIECES GLOBALLY</div>
+        <h3>AeroGrid Reflective Shell & Race Capsule</h3>
+        <p style="color:var(--paper-dim); line-height:1.6;">
+          Constructed with 88g ultralight Japanese ripstop bonded with an omnidirectional 3M™ Scotchlite reflective matrix. Repels autumn squalls while reflecting headlight beams at 300 lumens.
+        </p>
+
+        <!-- Drop Countdown -->
+        <div class="capsule-timer">
+          <div class="timer-slot">
+            <div class="val" id="timerDays">04</div>
+            <div class="lbl">DAYS</div>
+          </div>
+          <div class="timer-slot">
+            <div class="val" id="timerHours">18</div>
+            <div class="lbl">HOURS</div>
+          </div>
+          <div class="timer-slot">
+            <div class="val" id="timerMins">32</div>
+            <div class="lbl">MINS</div>
+          </div>
+          <div class="timer-slot">
+            <div class="val" id="timerSecs">15</div>
+            <div class="lbl">SECS</div>
+          </div>
+        </div>
+
+        <ul class="product-features-list">
+          <li>Schoeller 3XDRY® nanotech barrier</li>
+          <li>Dual bounce-free rear gel compartments</li>
+          <li>Magnetic Fidlock storm cinch</li>
+          <li>Laser-cut heat vent micro-mesh</li>
+        </ul>
+
+        <button class="btn btn-primary" id="reserveCapsuleHeroBtn" onclick="document.querySelector('.product-card').click();">
+          Inspect Capsule Spec Sheet →
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 Sub-Products Grid -->
+    <div class="products-subgrid">
+      <div class="product-card" data-product="p1">
+        <div class="product-card-top">
+          <span class="mono text-cobalt">JACKET 01</span>
+          <span class="badge badge-lime">ALLOCATION</span>
+        </div>
+        <div class="product-card-title">AeroGrid 3M Shell</div>
+        <div class="product-card-price">$145.00</div>
+        <div class="product-card-meta mono">Iridescent Slate / Black</div>
+      </div>
+
+      <div class="product-card" data-product="p2">
+        <div class="product-card-top">
+          <span class="mono text-cobalt">BOTTOM 02</span>
+          <span class="badge">LIMITED</span>
+        </div>
+        <div class="product-card-title">Interval 5" Split Short</div>
+        <div class="product-card-price">$78.00</div>
+        <div class="product-card-meta mono">Stealth Black / Lime</div>
+      </div>
+
+      <div class="product-card" data-product="p3">
+        <div class="product-card-top">
+          <span class="mono text-cobalt">HEADWEAR 03</span>
+          <span class="badge">IN STOCK</span>
+        </div>
+        <div class="product-card-title">Unsanctioned Pack Cap</div>
+        <div class="product-card-price">$42.00</div>
+        <div class="product-card-meta mono">Matte Carbon / 3M Strap</div>
+      </div>
+
+      <div class="product-card" data-product="p4">
+        <div class="product-card-top">
+          <span class="mono text-cobalt">FLEECE 04</span>
+          <span class="badge badge-cobalt">TABLE FIT</span>
+        </div>
+        <div class="product-card-title">Recovery 480gsm Crewneck</div>
+        <div class="product-card-price">$95.00</div>
+        <div class="product-card-meta mono">Chalk Heather Organic Terry</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       RUN DIVISION (INTERACTIVE ROUTE MAP & PACE ENGINE)
+       ========================================================================== -->
+  <section class="section-routes" id="routes">
+    <div class="section-head">
+      <div>
+        <div class="mono text-cobalt" style="margin-bottom:0.5rem;">[04 // RUN DIVISION]</div>
+        <h2 class="display">Interactive Route Telemetry</h2>
+      </div>
+      <p class="mono text-muted" style="max-width:34ch;">
+        Switch circuits, slide your target pace, and calculate your cohort heat assignment.
+      </p>
+    </div>
+
+    <div class="route-container">
+      <!-- Interactive Route Canvas -->
+      <div class="route-canvas-wrap">
+        <canvas id="routeCanvas"></canvas>
+        <div class="canvas-telemetry-overlay">
+          <span class="badge badge-lime">GPS REAL-TIME SIMULATION</span>
+          <span class="badge" id="routeDisplayDist">8.2 MI</span>
+        </div>
+      </div>
+
+      <!-- Route Controls & Dynamic Pace Engine -->
+      <div class="route-controls">
+        <div class="route-tabs">
+          <button class="route-tab-btn active" data-route="riverside">Riverside Drift (8.2M)</button>
+          <button class="route-tab-btn" data-route="crit">Midnight Crit (5.0M)</button>
+          <button class="route-tab-btn" data-route="bridge">East Bridge (6.5M)</button>
+        </div>
+
+        <div class="route-info-box">
+          <h3 id="routeDisplayTitle">RIVERSIDE DRIFT</h3>
+          <p id="routeDisplayDesc">
+            Our hallmark Sunday route along the western piers. Completely flat straightaways for negative-split pacing, finishing at The Table kitchen.
+          </p>
+        </div>
+
+        <!-- Dynamic Pace Calculator -->
+        <div class="pace-calculator-box">
+          <div class="pace-slider-label">
+            <span>TARGET PACE:</span>
+            <span class="curr-pace" id="currPaceDisplay">7:00 /mi</span>
+          </div>
+
+          <input type="range" class="pace-slider" id="paceSlider" min="330" max="630" step="15" value="420">
+
+          <div class="pace-results-grid">
+            <div class="pace-metric">
+              <div class="num" id="estTimeDisplay">57m 24s</div>
+              <div class="lbl">EST. DURATION</div>
+            </div>
+            <div class="pace-metric">
+              <div class="num" id="estCalDisplay">886 kcal</div>
+              <div class="lbl">ENERGY BURN</div>
+            </div>
+            <div class="pace-metric">
+              <div class="num" id="routeDisplayElev">+310 FT</div>
+              <div class="lbl">TOTAL CLIMB</div>
+            </div>
+          </div>
+
+          <div class="heat-assignment">
+            <span>ASSIGNED SQUAD:</span>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <span class="badge badge-cobalt" id="heatBadgeDisplay">HEAT 2</span>
+              <strong id="heatNameDisplay" style="color:var(--paper);">7:00–8:00 Tempo Collective</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       COMMUNITY DINNER / THE TABLE SPOTLIGHT
+       ========================================================================== -->
+  <section class="section-table-spotlight" id="table-spotlight">
+    <div class="table-image-frame">
+      <img src="assets/sunday-table.jpg" alt="THE BLOCK athletes gathering around an outdoor rustic dinner table with pasta and wine at dusk">
+    </div>
+
+    <div class="table-text">
+      <div class="mono text-lime" style="margin-bottom:0.8rem;">[05 // THE CULTURE THIRD SPACE]</div>
+      <h2 class="display">The Sunday Table</h2>
+      <p>
+        Running is the common denominator; dinner is the glue. Every Sunday evening, our long wooden table expands across an urban courtyard. Homemade sourdough, steaming bowls of hand-rolled pasta, local natural wine, and unscripted laughter.
+      </p>
+      <div class="table-quotes">
+        "You don't talk about quarterly OKRs or corporate ladders here. You talk about split paces, favorite sneakers, design sketches, and life."
+      </div>
+      <p style="font-size:0.95rem; color:var(--paper-dim);">
+        Every member has a turn to cook or bring a dish from their heritage. No catering companies. Just heart and good olive oil.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SCHEDULE & RUN SESSIONS
+       ========================================================================== -->
+  <section class="section-schedule" id="schedule">
+    <div class="section-head">
+      <div>
+        <div class="mono text-cobalt" style="margin-bottom:0.5rem;">[06 // CALENDAR & SESSIONS]</div>
+        <h2 class="display">Runs & Drops</h2>
+      </div>
+      <p class="mono text-muted" style="max-width:32ch;">
+        What's actually happening this month — no filler events. Click RSVP for instant calendar synchronization.
+      </p>
+    </div>
+
+    <!-- Category Filters -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="ALL">ALL EVENTS (6)</button>
+      <button class="filter-btn" data-filter="RUN">RUN SESSIONS</button>
+      <button class="filter-btn" data-filter="DROP">CAPSULE DROPS</button>
+      <button class="filter-btn" data-filter="GATHER">THE TABLE & STUDIO</button>
+    </div>
+
+    <!-- Dynamic Event Rows -->
+    <div class="sched-table" id="schedListContainer">
+      <!-- Injected via JavaScript -->
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       ATHLETE PASS STUDIO (PERSONALIZED DIGITAL MEMBER CARD)
+       ========================================================================== -->
+  <section class="section-pass-generator" id="pass-studio">
+    <div class="section-head">
+      <div>
+        <div class="mono text-lime" style="margin-bottom:0.5rem;">[07 // DIGITAL IDENTITY]</div>
+        <h2 class="display">Athlete Pass Studio</h2>
+      </div>
+      <p class="mono text-muted" style="max-width:34ch;">
+        Generate your bespoke digital club credential. Complete with cohort ID, custom barcode, and exportable high-res card.
+      </p>
+    </div>
+
+    <div class="pass-studio-layout">
+      <!-- Input Controls -->
+      <form class="pass-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="passInputName">Full Name / Call-Sign</label>
+          <input type="text" id="passInputName" value="Maya Lin" placeholder="e.g. Marcus Vance">
+        </div>
+
+        <div class="form-group">
+          <label for="passInputHandle">Social / Strava Handle</label>
+          <input type="text" id="passInputHandle" value="@mayasprints" placeholder="@yourhandle">
+        </div>
+
+        <div class="form-group">
+          <label for="passSelectHeat">Target Pace Heat</label>
+          <select id="passSelectHeat">
+            <option value="Heat 1 — Sub-6:40 Speedpack">Heat 1 — Sub-6:40 Speedpack</option>
+            <option value="Heat 2 — 7:00–8:00 Tempo" selected>Heat 2 — 7:00–8:00 Tempo Collective</option>
+            <option value="Heat 3 — 8:30+ Social Cruise">Heat 3 — 8:30+ Social Strides</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="passSelectFocus">Primary Club Focus</label>
+          <select id="passSelectFocus">
+            <option value="Run Division & Track">Run Division & Track</option>
+            <option value="Makers Studio & Kit Design" selected>Makers Studio & Kit Design</option>
+            <option value="The Table & Culinary Roster">The Table & Culinary Roster</option>
+            <option value="All-Around Crew Member">All-Around Crew Member</option>
+          </select>
+        </div>
+
+        <button type="button" class="btn btn-lime" id="downloadPassBtn">
+          Download Official Pass (.PNG) ↓
+        </button>
+      </form>
+
+      <!-- Live Digital Pass Card Preview -->
+      <div class="pass-preview-container">
+        <div class="digital-pass-card" id="digitalPassCard">
+          <div class="pass-card-header">
+            <div class="pass-card-title">THE<span>BLOCK</span></div>
+            <div class="pass-card-id" id="cardIdDisplay">#BLK-23-ML8410</div>
+          </div>
+
+          <div class="pass-card-body">
+            <div class="pass-user-name" id="cardUserName">MAYA LIN</div>
+            <div class="pass-user-handle" id="cardUserHandle">@mayasprints</div>
+
+            <div class="pass-details-row">
+              <div class="pass-detail-col">
+                <div class="lbl">PACE HEAT</div>
+                <div class="val" id="cardUserHeat">Heat 2 — 7:00–8:00 Tempo</div>
+              </div>
+              <div class="pass-detail-col">
+                <div class="lbl">CLUB FOCUS</div>
+                <div class="val" id="cardUserFocus">Makers Studio & Kit Design</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="pass-barcode-wrap">
+            <svg class="pass-barcode-svg" viewBox="0 0 200 40">
+              <line x1="5" y1="0" x2="5" y2="40" stroke="#EDEAE2" stroke-width="3" />
+              <line x1="12" y1="0" x2="12" y2="40" stroke="#EDEAE2" stroke-width="1.5" />
+              <line x1="18" y1="0" x2="18" y2="40" stroke="#EDEAE2" stroke-width="4" />
+              <line x1="26" y1="0" x2="26" y2="40" stroke="#EDEAE2" stroke-width="1.5" />
+              <line x1="33" y1="0" x2="33" y2="40" stroke="#EDEAE2" stroke-width="3" />
+              <line x1="42" y1="0" x2="42" y2="40" stroke="#EDEAE2" stroke-width="5" />
+              <line x1="52" y1="0" x2="52" y2="40" stroke="#EDEAE2" stroke-width="2" />
+              <line x1="60" y1="0" x2="60" y2="40" stroke="#EDEAE2" stroke-width="3.5" />
+              <line x1="70" y1="0" x2="70" y2="40" stroke="#EDEAE2" stroke-width="1.5" />
+              <line x1="77" y1="0" x2="77" y2="40" stroke="#EDEAE2" stroke-width="4" />
+              <line x1="88" y1="0" x2="88" y2="40" stroke="#EDEAE2" stroke-width="2.5" />
+              <line x1="97" y1="0" x2="97" y2="40" stroke="#EDEAE2" stroke-width="4.5" />
+              <line x1="108" y1="0" x2="108" y2="40" stroke="#EDEAE2" stroke-width="2" />
+              <line x1="117" y1="0" x2="117" y2="40" stroke="#EDEAE2" stroke-width="3.5" />
+              <line x1="128" y1="0" x2="128" y2="40" stroke="#EDEAE2" stroke-width="1.5" />
+              <line x1="136" y1="0" x2="136" y2="40" stroke="#EDEAE2" stroke-width="4" />
+              <line x1="147" y1="0" x2="147" y2="40" stroke="#EDEAE2" stroke-width="3" />
+              <line x1="158" y1="0" x2="158" y2="40" stroke="#EDEAE2" stroke-width="1.5" />
+              <line x1="166" y1="0" x2="166" y2="40" stroke="#EDEAE2" stroke-width="4.5" />
+              <line x1="178" y1="0" x2="178" y2="40" stroke="#EDEAE2" stroke-width="2" />
+              <line x1="188" y1="0" x2="188" y2="40" stroke="#EDEAE2" stroke-width="3.5" />
+              <line x1="195" y1="0" x2="195" y2="40" stroke="#EDEAE2" stroke-width="2" />
+            </svg>
+            <div class="pass-seal">
+              OFFICIAL MEMBER CREDENTIAL<br>
+              TRACK // ATHLETE-CORE
+            </div>
+          </div>
+        </div>
+        <div class="mono text-muted" style="font-size:0.75rem;">⚡ REAL-TIME LIVE PREVIEW // 100% EXPORTABLE</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       JOIN / INVITATION SECTION
+       ========================================================================== -->
+  <section class="section-join" id="join">
+    <div class="join-content">
+      <h2 class="display">Show up once.<br>See if it <em>sticks.</em></h2>
+
+      <div class="join-form-wrap">
+        <input type="email" id="emailCohortInput" placeholder="Enter your email address" aria-label="Email address for membership">
+        <button type="button" id="joinSubmitBtn" onclick="if(document.getElementById('emailCohortInput').value){ showToast('✓ Request confirmed! Welcome to Cohort 23.'); document.getElementById('emailCohortInput').value=''; this.textContent='You\'re In →'; } else { showToast('Please enter a valid email.'); }">
+          Request Invite →
+        </button>
+      </div>
+
+      <p class="join-fineprint">
+        Your first run and community dinner are 100% free. After that, it's $40/mo — covers track lane bookings, silk-screening ink in the studio, and the community dinner fund.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="nav-mark display" style="font-size:2.2rem; margin-bottom:0.8rem;">THE<span>BLOCK</span></div>
+        <p style="font-size:0.88rem; color:var(--paper-dim); max-width:28ch; line-height:1.6;">
+          An athletic club built around community, streetwear, and lifestyle culture, not just the sport.
+        </p>
+        <div class="mono text-lime" style="margin-top:1.2rem;">TRACK 05: BEYOND THE GAME</div>
+      </div>
+
+      <div class="footer-col">
+        <h5>Run Division</h5>
+        <ul>
+          <li><a href="#routes">Riverside Drift (8.2M)</a></li>
+          <li><a href="#routes">Midnight Crit (5.0M)</a></li>
+          <li><a href="#routes">Bridge Hill Repeats</a></li>
+          <li><a href="#routes">Pace Heat Guidelines</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Culture & Kit</h5>
+        <ul>
+          <li><a href="#capsule">FW26 Capsule Drops</a></li>
+          <li><a href="#crew">Makers Design Studio</a></li>
+          <li><a href="#table-spotlight">The Sunday Table</a></li>
+          <li><a href="#pass-studio">Digital Athlete Pass</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h5>Connect</h5>
+        <ul>
+          <li><a href="#" onclick="showToast('Strava Club link copied!'); return false;">Strava Club</a></li>
+          <li><a href="#" onclick="showToast('Instagram: @theblockclub'); return false;">Instagram</a></li>
+          <li><a href="#" onclick="showToast('Spotify: THE BLOCK RADIO Vol. 14'); return false;">Spotify Playlist</a></li>
+          <li><a href="#" onclick="showToast('Discord Member Lounge link copied!'); return false;">Discord Lounge</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>THE BLOCK ATHLETIC CLUB — EST. TWO WINTERS AGO // ALL RIGHTS RESERVED</span>
+      <span>COORDINATES: 40.7128° N, 74.0060° W // NON-ELITIST RUN CULTURE</span>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       MODALS
+       ========================================================================== -->
+  <!-- Product Lookbook Modal -->
+  <div class="modal-backdrop" id="productModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeProductModal" aria-label="Close Product Details">✕</button>
+      <span class="badge badge-lime" style="margin-bottom:0.8rem;">FW26 TECHNICAL APPAREL</span>
+      <h3 class="display" id="modalProductTitle" style="font-size:2.2rem; margin-bottom:0.4rem;">AEROGRID 3M SHELL</h3>
+      <div id="modalProductPrice" style="font-family:var(--font-mono); font-size:1.1rem; color:var(--lime); margin-bottom:0.8rem;">$145.00</div>
+      <div id="modalProductColor" class="mono text-muted" style="margin-bottom:1.2rem;">Colorway: Iridescent Slate</div>
+      <p id="modalProductDesc" style="color:var(--paper-dim); font-size:0.92rem; line-height:1.6; margin-bottom:1.5rem;"></p>
+
+      <div class="mono" style="margin-bottom:0.6rem; color:var(--paper);">TECHNICAL SPECIFICATIONS:</div>
+      <ul id="modalProductSpecs" class="product-features-list" style="margin-bottom:1.8rem;"></ul>
+
+      <div style="margin-bottom:1.5rem;">
+        <div class="mono" style="margin-bottom:0.6rem; color:var(--paper);">SELECT SIZE:</div>
+        <div style="display:flex; gap:0.6rem;">
+          <button type="button" class="btn btn-outline btn-sm size-btn">XS</button>
+          <button type="button" class="btn btn-outline btn-sm size-btn">S</button>
+          <button type="button" class="btn btn-outline btn-sm size-btn active" style="border-color:var(--lime); color:var(--lime);">M</button>
+          <button type="button" class="btn btn-outline btn-sm size-btn">L</button>
+          <button type="button" class="btn btn-outline btn-sm size-btn">XL</button>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-lime" id="reserveProductBtn" style="width:100%;">
+        Reserve Member Allocation →
+      </button>
+    </div>
+  </div>
+
+  <!-- RSVP Modal -->
+  <div class="modal-backdrop" id="rsvpModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeRsvpModal" aria-label="Close RSVP Dialog">✕</button>
+      <span class="badge badge-cobalt" style="margin-bottom:0.8rem;">EVENT REGISTRATION</span>
+      <h3 class="display" id="rsvpModalTitle" style="font-size:2.2rem; margin-bottom:0.4rem;">RSVP: SUNDAY LONG RUN</h3>
+      <p id="rsvpModalMeta" class="mono text-lime" style="margin-bottom:1.5rem;">SEP 14 // 5:45 AM</p>
+
+      <form id="rsvpForm" style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="form-group">
+          <label for="rsvpInputName">Your Full Name</label>
+          <input type="text" id="rsvpInputName" required placeholder="e.g. Jordan Hayes">
+        </div>
+        <div class="form-group">
+          <label for="rsvpInputEmail">Email Address (For Roster & iCal sync)</label>
+          <input type="email" id="rsvpInputEmail" required placeholder="jordan@example.com">
+        </div>
+        <div class="form-group">
+          <label for="rsvpInputPace">Target Pace Group / Heat</label>
+          <select id="rsvpInputPace">
+            <option value="Heat 1: Sub-6:40 /mi">Heat 1: Sub-6:40 /mi (Fast Pace)</option>
+            <option value="Heat 2: 7:00–8:00 /mi" selected>Heat 2: 7:00–8:00 /mi (Tempo)</option>
+            <option value="Heat 3: 8:30+ /mi">Heat 3: 8:30+ /mi (Conversational Cruise)</option>
+            <option value="Social Only (The Table / Spectator)">Social Only (The Table / Spectator)</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-lime" style="margin-top:0.8rem;">
+          Confirm RSVP & Download .ICS Calendar Invite →
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
