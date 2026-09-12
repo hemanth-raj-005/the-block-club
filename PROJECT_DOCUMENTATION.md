@@ -38,14 +38,14 @@
 ## 2. Comprehensive Inventory: Everything Built in the App
 
 ### 1. Navigation & Cadence Audio Bar
-- **Brand Identity**: Monolithic `THE BLOCK` typography with electric cobalt accent.
+- **Brand Identity**: Monolithic `THE BLOCK` typography with electric cobalt accent. Clicking smoothly scrolls to top.
 - **Cohort Status Pill**: Live telemetry indicator (`COHORT 23 // OPEN FOR ENLISTMENT`).
-- **Cadence Synthesizer Toggle**: Interactive button with animated 4-bar equalizer that activates procedural 168 BPM runner cadence audio and UI click ticks.
-- **Direct Navigation Links**: Manifesto, The Crew, FW26 Capsule, Run Division, Runs & Drops, Athlete Pass Studio.
-- **Mobile Responsive Drawer**: Slide-out navigation menu for mobile viewports (< 820px).
+- **Cadence Synthesizer Toggle**: Interactive button with vector volume speaker SVG and animated 4-bar equalizer that activates procedural 168 BPM runner cadence audio and UI click ticks.
+- **Direct Navigation Links**: Manifesto, The Crew, FW26 Capsule, Run Division, The Table, Runs & Drops, Athlete Pass Studio.
+- **Mobile Responsive Drawer**: Accessible slide-out navigation menu for mobile viewports (< 820px) with dedicated close button and section shortcuts.
 
 ### 2. Kinetic Ticker Marquee
-- Continuous, hardware-accelerated infinite scrolling ticker ribbon in high-vis acid lime (`#D4FF3D`) with dark carbon typography broadcasting real-time club updates.
+- Continuous, hardware-accelerated infinite scrolling ticker ribbon in high-vis acid lime (`#D4FF3D`) with dark carbon typography and SVG status glyphs broadcasting real-time club updates.
 
 ### 3. Hero Section (Dawn Protocol)
 - **Background Watermark**: Giant brutalist outline typography (`23`).
@@ -56,20 +56,22 @@
   - `420+ MI` — Weekly Distance Logged
   - `0` — Tryouts Required (Zero gatekeeping)
   - `100%` — Homemade Table Food
-- **Editorial Showcase Card**: Hero runner photography featuring HUD coordinates (`LAT: 40.7128° N // LON: 74.0060° W`), 3M technical specification callouts, and cadence monitor tag.
+- **Editorial Showcase Card & 3M Reflective Mode**:
+  - Hero runner photography featuring HUD coordinates (`LAT: 40.7128° N // LON: 74.0060° W`).
+  - **Interactive 3M High-Vis Button**: Toggles high-contrast night illumination filter (`3M NIGHT GLOW: ON / OFF`) with instant audio feedback and status updates.
 
 ### 4. Manifesto: "Culture As Catalyst"
 - Manifesto statement: *"Sport built the discipline. Culture built the community. We stopped pretending you had to pick one."*
 - Explains the philosophy of the "Third Space" between corporate life, athletic discipline, and streetwear culture.
-- **3 Core Pillars**:
-  - *Zero Gatekeeping*: Equal support for sub-5:00 milers and 11:00 conversational joggers.
-  - *Tactile Apparel*: Low-run technical gear crafted from Japanese ripstop and 3M Scotchlite instead of polyester billboards.
-  - *The Sunday Table*: Sweat gets you in; shared meals build lifetime community.
+- **3 Core Pillars with Custom Vector Icons**:
+  - *Zero Gatekeeping*: Shield & checkmark icon.
+  - *Tactile Apparel*: Precision fabric swatch vector icon.
+  - *The Sunday Table*: Communal fork & knife vector icon.
 
 ### 5. The Crew: 3 Ways In
-- **01 The Runners**: 5:45 AM dawn starts, waterfront tempo splits, coached track nights under floodlights.
-- **02 The Makers**: In-house apparel design lab, custom silkscreen printing, typography experiments, and prototype testing.
-- **03 The Table**: Post-run family dinners, rotating chef hosts, sourdough, pasta, and natural wine.
+- **01 The Runners**: 5:45 AM dawn starts, waterfront tempo splits, coached track nights. Includes working **"Explore Running Sessions →"** button that activates the `RUN` filter and scrolls to the calendar.
+- **02 The Makers**: In-house apparel design lab, custom silkscreen printing, typography experiments. Includes working **"Makers Lab Nights →"** button that activates the `GATHER` calendar filter.
+- **03 The Table**: Post-run family dinners, rotating chef hosts. Includes working **"View Sunday Chef Menu →"** button that triggers the authentic dining menu modal.
 
 ### 6. FW26 Capsule Drop: Atelier Showcase
 - **Drop 02 Countdown Timer**: Live ticking countdown timer displaying Days, Hours, Minutes, and Seconds until release.
@@ -80,7 +82,12 @@
   2. *Interval 5" Split Race Short* ($78)
   3. *Unsanctioned Pack Cap* ($42)
   4. *Recovery 480gsm Heavyweight Crewneck* ($95)
-- **Interactive Product Modal**: Clicking any item opens a dedicated modal with technical specifications, size selector (XS, S, M, L, XL), and an instant "Reserve Member Allocation" button with toast confirmation.
+- **Interactive Product Modal**:
+  - Dedicated specifications and description for the active product.
+  - **Color Swatches**: Interactive buttons (`Slate Black`, `High-Vis Lime`, `Electric Cobalt`) updating the live colorway.
+  - **Size Selector**: `XS`, `S`, `M`, `L`, `XL`.
+  - **Quantity Counter**: `[-]` and `[+]` controls (limited to 2 units per member).
+  - **Reserve Button**: Validates selection, updates allocation, and displays toast notification.
 
 ### 7. Run Division: Interactive Route Map & Pace Engine
 - **HTML5 Canvas GPS Circuit**:
@@ -88,6 +95,12 @@
   - Route A: *Riverside Drift (8.2 mi)* — Flat waterfront asphalt for negative splits.
   - Route B: *Midnight Crit (5.0 mi)* — Fast 90-degree cornering under neon city lights.
   - Route C: *East Bridge Repeats (6.5 mi)* — 4x suspension bridge climbs (+740 ft elevation).
+  - **Playback Controller**: Interactive Play/Pause button (`RUNNER: ACTIVE / PAUSED`) to halt or resume course traversal.
+- **Quick Pace Presets**:
+  - `5K Sprint (5:45/mi)`
+  - `10K Tempo (7:00/mi)`
+  - `Half Marathon (8:15/mi)`
+  - `Easy Recovery (9:30/mi)`
 - **Interactive Target Pace Slider**:
   - Adjustable range from 5:30/mi (330s) to 10:30/mi (630s).
   - Dynamically calculates estimated duration (e.g. `57m 24s`), total energy expenditure (e.g. `886 kcal`), and assigns the user to their squad heat:
@@ -95,8 +108,9 @@
     - **HEAT 2**: 7:00–8:00 Tempo Collective
     - **HEAT 3**: 8:30+ Social Strides & Vibes
 
-### 8. The Sunday Table Spotlight
-- Dedicated cultural lifestyle section spotlighting the communal dinner experience with documentary-style photography, quote callouts, and rotating chef stories.
+### 8. The Sunday Table Spotlight & Chef Menu Modal
+- Dedicated cultural lifestyle section spotlighting the communal dinner experience with documentary-style photography.
+- **"Inspect Sunday Feast Menu →" Button**: Opens a specialized dialog revealing the rotating host chef's multi-course dinner (Handmade Pappardelle al Ragù di Funghi, Roasted Heirloom Beets & Burrata, Jura Orange Wine, Espresso Tiramisu) with a direct RSVP action.
 
 ### 9. Schedule & Event Engine
 - Category filter buttons: `ALL EVENTS (6)`, `RUN SESSIONS`, `CAPSULE DROPS`, `THE TABLE & STUDIO`.
@@ -115,12 +129,16 @@
   - Holographic gradient top bar and dark carbon card chassis.
   - Dynamically generated unique member code (e.g. `#BLK-23-ML8410`).
   - Scalable Vector Graphics (SVG) high-contrast barcode with official club seal.
-- **Instant Canvas Export**:
-  - Clicking **"Download Official Pass (.PNG)"** draws the customized card onto an off-screen HTML5 canvas and triggers an automatic image download to the user's computer.
+- **Interactive Card Utilities**:
+  - **Download Official Pass (.PNG)**: Draws customized card onto an off-screen HTML5 canvas and triggers an automatic image download.
+  - **Copy ID Button**: 1-click clipboard copy of the unique member ID.
+  - **Re-Roll ID Button**: Generates a fresh barcode hash and member ID.
+  - **Holo Foil Button**: Toggles holographic foil border and glow on the digital pass card.
 
 ### 11. Membership Invitation & Footer
-- "Show up once. See if it sticks." email registration input with validation and toast feedback.
-- Detailed footer with navigation links, club coordinates (`40.7128° N, 74.0060° W`), Strava club link, Instagram link, Spotify playlist link, and Track 05 credential notice.
+- "Show up once. See if it sticks." email registration input with email validation and interactive checkmark confirmation.
+- **Back to Top Button**: Smooth scroll back to navigation header with audio tick.
+- **Social Connect Hub**: Working interactive vector buttons for Strava Club, Instagram (`@theblockclub`), Spotify (`Block Beats Vol. 14`), and Discord Member Lounge.
 
 ---
 
