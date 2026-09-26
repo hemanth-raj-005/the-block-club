@@ -53,11 +53,4 @@ Designed as a third space away from corporate isolation and traditional gym gate
 
 ---
 
-## 🌐 Deploy to GitHub Pages
 
-1. Push this repository to GitHub.
-2. Go to **Settings** > **Pages**.
-3. Under **Build and deployment**, select:
-   - **Source**: `Deploy from a branch`
-   - **Branch**: `main` / `root`
-4. Click **Save**. Your site will be live at `https://<your-username>.github.io/<repo-name>/`.
